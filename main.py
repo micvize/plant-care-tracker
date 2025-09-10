@@ -17,12 +17,21 @@ def show_plants():
         for p in plants:
             print(" -", p)
 
+def remove_plant(name):
+    """Remove a plant from the list, if it exists."""
+    if name in plants:
+        plants.remove(name)
+        print(f"❌ Plant '{name}' removed!")
+    else:
+        print(f"⚠️ No plant named '{name}' found.")
+
 # ----------- Simple Menu -----------
 while True:
     print("\n--- Plant Care Tracker ---")
     print("1. Add a plant")
     print("2. Show plants")
-    print("3. Exit")
+    print("3. Remove a Plant")
+    print("4. Exit")
     choice = input("Choose an option: ")
 
     if choice == "1":
@@ -31,6 +40,9 @@ while True:
     elif choice == "2":
         show_plants()
     elif choice == "3":
+        name = input("Enter plant name to remove: ")
+        remove_plant(name)
+    elif choice == "4":
         print("Goodbye! 🌿")
         break
     else:
